@@ -1,0 +1,115 @@
+\documentclass[
+  a4paper,
+  12pt,
+  twoside,
+  openright
+]{report}
+
+% ===== 日本語 =====
+\usepackage{luatexja}
+
+% ===== レイアウト =====
+\usepackage[
+  left=30mm,
+  right=25mm,
+  top=25mm,
+  bottom=25mm
+]{geometry}
+
+% ===== 行間 =====
+\usepackage{setspace}
+\onehalfspacing
+
+% ===== 段落制御（最重要） =====
+\setlength{\parindent}{1\zw}
+\setlength{\parskip}{0pt}
+
+% セクション直後も字下げ
+\usepackage{indentfirst}
+\usepackage{caption}
+
+% ===== 図挿入 =====
+\usepackage{graphicx}
+\usepackage{float}
+
+% ===== 見出し番号 =====
+\renewcommand{\chaptername}{第}
+\renewcommand{\thechapter}{\arabic{chapter}}
+\renewcommand{\thesection}{\thechapter.\arabic{section}}
+
+% ===== 章見出しデザイン =====
+\makeatletter
+\renewcommand{\@makechapterhead}[1]{%
+  \vspace*{50\p@}%
+  {\parindent \z@ \raggedright
+    \normalfont
+    \Huge\bfseries 第\thechapter 章\quad #1\par\nobreak
+    \vskip 40\p@
+  }}
+\makeatother
+
+\begin{document}
+
+% =====================
+% 表紙（タイトルページ）
+% =====================
+\begin{titlepage}
+  \thispagestyle{empty}
+
+  \begin{center}
+    \vspace*{20mm}
+
+% ===== 年度＋ロゴ（文字は中央、ロゴは左）=====
+\begin{center}
+  % ロゴ（中央基準から左に配置）
+  \makebox[0pt][r]{%
+    \raisebox{-0.2ex}{%
+      \includegraphics[width=18mm]{fig/kindai.png}%
+    }\hspace{10mm}%
+  }%
+  % 中央に来る文字
+  {\LARGE 令和7年度\quad 卒業研究論文}
+\end{center}
+
+    \vspace{25mm}
+
+    {\Huge\bfseries
+      掌に付着するウイルス量の定量評価と\\
+      洗浄による除去効率に関する研究
+      \par}
+
+    \vspace{35mm}
+
+    {\Large
+      92100104　上田 涼介\\
+      92100124　岡本 悠椰\\
+      92100108　川瀬 羽駈\\
+      92005010　蔵岡 倫哉\\
+      92000130　坪井 勇希\\
+      92100113　寺地　翔\\
+      92005035　森山 大史\\
+
+      \par}
+
+ % ===== フッター =====
+    \vfill
+
+    {\large 近畿大学工業高等専門学校 総合システム工学科 都市環境コース\\指導教員　安井 宣仁 准教授 \par}
+
+    \end{center}
+\end{titlepage}
+
+% =====================
+% 本文ページ番号の開始
+% （表紙は番号なし → 第1章を 1 ページに）
+% =====================
+\cleardoublepage
+\pagenumbering{arabic}
+\setcounter{page}{1}
+
+% ===== 本文 =====
+\input{chap1}
+\input{chap2}
+\input{chap3}
+
+\end{document}

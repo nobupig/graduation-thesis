@@ -1,0 +1,29 @@
+{
+  "latex-workshop.latex.autoBuild.run": "never",
+  "latex-workshop.latex.tools": [
+    {
+      "name": "lualatex",
+      "command": "lualatex",
+      "args": [
+        "-interaction=nonstopmode",
+        "-halt-on-error",
+        "%DOC%"
+      ]
+    }
+  ],
+  "latex-workshop.latex.recipes": [
+    {
+      "name": "LuaLaTeX",
+      "tools": ["lualatex"]
+    }
+  ],
+  "cSpell.ignoreWords": [
+  "contentsline",
+  "numberline",
+  "addvspace",
+  "Cano"
+],
+"cSpell.words": [
+  "Wilk"
+]
+}
