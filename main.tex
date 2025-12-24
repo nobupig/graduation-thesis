@@ -27,6 +27,10 @@
 % セクション直後も字下げ
 \usepackage{indentfirst}
 \usepackage{caption}
+\captionsetup{justification=centering}
+
+% ===== 表関連 =====
+\usepackage{tabularx}
 
 % ===== 図挿入 =====
 \usepackage{graphicx}
@@ -36,17 +40,26 @@
 \renewcommand{\chaptername}{第}
 \renewcommand{\thechapter}{\arabic{chapter}}
 \renewcommand{\thesection}{\thechapter.\arabic{section}}
+\renewcommand{\contentsname}{目次}
+
+
+\usepackage{tocloft}
+
+\renewcommand{\cftchappresnum}{第}
+\renewcommand{\cftchapaftersnum}{章\quad}
+\setlength{\cftchapnumwidth}{4em}
 
 % ===== 章見出しデザイン =====
 \makeatletter
 \renewcommand{\@makechapterhead}[1]{%
-  \vspace*{50\p@}%
+  \vspace*{40\p@}%
   {\parindent \z@ \raggedright
     \normalfont
-    \Huge\bfseries 第\thechapter 章\quad #1\par\nobreak
-    \vskip 40\p@
+    \LARGE\bfseries 第\thechapter 章\quad #1\par\nobreak
+    \vskip 30\p@
   }}
 \makeatother
+
 
 \begin{document}
 
@@ -86,7 +99,7 @@
       92100108　川瀬 羽駈\\
       92005010　蔵岡 倫哉\\
       92000130　坪井 勇希\\
-      92100113　寺地　翔\\
+      92100113　寺地 翔\\
       92005035　森山 大史\\
 
       \par}
@@ -100,6 +113,41 @@
 \end{titlepage}
 
 % =====================
+% ここに「目次」を入れる
+% =====================
+\cleardoublepage
+
+\clearpage
+\thispagestyle{empty}
+
+\begin{center}
+\vspace*{2cm}
+
+{\Large\bf 卒業論文　各章の担当者一覧}
+
+\vspace{2cm}
+
+\begin{tabular}{ll}
+第1章 & 序論 \quad 上田 涼介 \\[0.8em]
+第2章 & 掌面積・体積評価手法 \quad 蔵岡 智哉 \\[0.8em]
+第3章 & 掌表面の付着水分量の測定と統計解析 \quad 森山 大史 \\[0.8em]
+第4章 & ファージMS2を用いた掌付着・洗浄実験の基礎的検討 \quad 坪井 勇希 \\[0.8em]
+第5章 & 洗浄条件の違いがウイルス除去効率に及ぼす影響 \quad 寺地 翔 \\[0.8em]
+第6章 & 標準化残存率モデルの構築と統計解析 \quad 川瀬 羽駈 \\[0.8em]
+第7章 & 洗浄後に掌へ残存するウイルス量に基づく感染リスク評価 \quad 岡本 悠椰
+\end{tabular}
+
+\vfill
+\end{center}
+
+\clearpage
+
+
+\tableofcontents
+\cleardoublepage
+
+
+% =====================
 % 本文ページ番号の開始
 % （表紙は番号なし → 第1章を 1 ページに）
 % =====================
@@ -111,5 +159,8 @@
 \input{chap1}
 \input{chap2}
 \input{chap3}
-
+\input{chap4}
+\input{chap5} 
+\input{chap6}
+\input{chap7}
 \end{document}
