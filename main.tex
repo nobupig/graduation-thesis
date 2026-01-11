@@ -41,7 +41,7 @@
 \renewcommand{\thechapter}{\arabic{chapter}}
 \renewcommand{\thesection}{\thechapter.\arabic{section}}
 \renewcommand{\contentsname}{目次}
-
+\renewcommand{\bibname}{参考文献}
 
 \usepackage{tocloft}
 
@@ -60,6 +60,9 @@
   }}
 \makeatother
 
+\makeatletter
+\renewcommand{\@biblabel}[1]{#1)}
+\makeatother
 
 \begin{document}
 
@@ -93,16 +96,18 @@
 
     \vspace{35mm}
 
-    {\Large
-      92100104　上田 涼介\\
-      92100124　岡本 悠椰\\
-      92100108　川瀬 羽駈\\
-      92005010　蔵岡 倫哉\\
-      92000130　坪井 勇希\\
-      92100113　寺地 翔\\
-      92005035　森山 大史\\
+      {\Large
+    \begin{tabular}{r@{\quad}l}
+    92100104 & 上田 涼介 \\
+    92100124 & 岡本 悠椰 \\
+    92100108 & 川瀬 羽駈 \\
+    92005010 & 蔵岡 倫哉 \\
+    92000130 & 坪井 勇希 \\
+    92100113 & 寺地 翔 \\
+    92005035 & 森山 大史 \\
+    \end{tabular}
+    }
 
-      \par}
 
  % ===== フッター =====
     \vfill
@@ -142,6 +147,8 @@
 
 \clearpage
 
+% ===== 和文アブストラクト =====
+\input{abstract}
 
 \tableofcontents
 \cleardoublepage
@@ -163,4 +170,5 @@
 \input{chap5} 
 \input{chap6}
 \input{chap7}
+\input{references}
 \end{document}
